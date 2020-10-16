@@ -13,7 +13,12 @@ class Event extends Model
         'title',
         'description',
         'status',
+        'created_by',
         'noa',
         'event_date',
     ];
+
+    public function creator() {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
 }

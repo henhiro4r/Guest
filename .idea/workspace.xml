@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="822ef317-a9b4-4c79-ba8b-357c90c6449b" name="Default Changelist" comment="" />
+    <list default="true" id="822ef317-a9b4-4c79-ba8b-357c90c6449b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/student/addStudent.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/student/editStudent.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/student/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -17,6 +25,9 @@
         <option value="blade" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -138,7 +149,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/student" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -152,11 +163,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Guest\resources\views\student" />
+      <recent name="C:\xampp\htdocs\Guest\resources\views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Guest\resources\views\event" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Guest\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -173,7 +185,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602204115812</updated>
-      <workItem from="1602204116904" duration="11955000" />
+      <workItem from="1602204116904" duration="12543000" />
+      <workItem from="1602264765737" duration="599000" />
+      <workItem from="1602338472601" duration="607000" />
+      <workItem from="1602685235971" duration="3088000" />
+      <workItem from="1602807168476" duration="12308000" />
     </task>
     <servers />
   </component>
@@ -181,9 +197,9 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="922" y="174" key="SettingsEditor" timestamp="1602204685943">
+    <state x="531" y="191" key="SettingsEditor" timestamp="1602811107022">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="922" y="174" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602204685943" />
+    <state x="531" y="191" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602811107022" />
   </component>
 </project>
