@@ -9,11 +9,11 @@
             <li class="nav-item @if($pages == 'event') active @endif">
                 <a class="nav-link" href="{{ route('event.index') }}">Event List</a>
             </li>
-            @auth
+            @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
                 <li class="nav-item @if($pages == 'user') active @endif">
                     <a class="nav-link" href="{{ route('user.index') }}">User List</a>
                 </li>
-            @endauth
+            @endif
         </ul>
     </div>
 </nav>
