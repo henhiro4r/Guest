@@ -36,12 +36,12 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('event.index') }}">Event List</a>
+                        <a class="nav-link" href="{{ route('creator.event.index') }}">Event List</a>
                     </li>
                     @auth
                         @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">User List</a>
+                                <a class="nav-link" href="{{ route('admin.user.index') }}">User List</a>
                             </li>
                         @endif
                     @endauth

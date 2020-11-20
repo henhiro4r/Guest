@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Auth\ActivationController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\User\UserController as UUserController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,9 +25,30 @@ Route::get('/', function () {
 
 Route::get('activate', [ActivationController::class, 'activate'])->name('activate');
 
-Route::resource('event', EventController::class);
-Route::resource('user', UserController::class);
-Route::resource('student', StudentController::class);
+Route::group([
+    'middleware' => 'admin',
+    'prefix' => 'admin',
+    'as' => 'admin.'
+], function () {
+    Route::resource('user', UserController::class);
+    Route::resource('event', AdminEventController::class);
+});
+
+Route::group([
+    'middleware' => 'creator',
+    'prefix' => 'creator',
+    'as' => 'creator.'
+], function () {
+    Route::resource('event', EventController::class);
+});
+
+Route::group([
+    'middleware' => 'user',
+    'prefix' => 'user',
+    'as' => 'user.'
+], function () {
+    Route::resource('user', UUserController::class);
+});
 
 Auth::routes();
 

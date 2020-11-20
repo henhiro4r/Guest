@@ -6,7 +6,7 @@
         </div>
         <div class="row">
             <div class="col-md-2 offset-md-10">
-                <a href="{{ route('user.create') }}" class="btn btn-primary btn-block" role="button"
+                <a href="{{ route('admin.user.create') }}" class="btn btn-primary btn-block" role="button"
                    aria-pressed="true">Tambah</a>
             </div>
         </div>
