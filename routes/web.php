@@ -19,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('event.index');
-});
+Route::view('/', 'welcome');
 
 Route::get('activate', [ActivationController::class, 'activate'])->name('activate');
 
