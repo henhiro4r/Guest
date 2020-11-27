@@ -19,6 +19,8 @@ class UserSeeder extends Seeder
         $user->email = 'henry@root.com';
         $user->password = '$2y$10$E3OjImMSjPTG6J4SLgFWte1wyH7lZwEtfPiahDdT2LyZG/RjqTWuq';
         $user->role_id = 1; #admin
+        $user->is_verified = '1';
+        $user->is_active = '1';
         $user->save();
 
         $user = new User();
@@ -26,6 +28,8 @@ class UserSeeder extends Seeder
         $user->email = 'henry@creator.com';
         $user->password = '$2y$10$E3OjImMSjPTG6J4SLgFWte1wyH7lZwEtfPiahDdT2LyZG/RjqTWuq';
         $user->role_id = 2; #creator
+        $user->is_verified = '1';
+        $user->is_active = '1';
         $user->save();
 
         $user = new User();
@@ -33,6 +37,8 @@ class UserSeeder extends Seeder
         $user->email = 'henry@user.com';
         $user->password = '$2y$10$E3OjImMSjPTG6J4SLgFWte1wyH7lZwEtfPiahDdT2LyZG/RjqTWuq';
         $user->role_id = 3; #user
+        $user->is_verified = '1';
+        $user->is_active = '1';
         $user->save();
     }
 }

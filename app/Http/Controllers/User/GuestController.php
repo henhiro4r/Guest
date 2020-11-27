@@ -14,7 +14,8 @@ class GuestController extends Controller
      */
     public function index()
     {
-        //
+        $pages = "event";
+        return view('user.event.index', compact('pages'));
     }
 
     /**
