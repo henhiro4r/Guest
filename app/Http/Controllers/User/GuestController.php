@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
 {
@@ -15,7 +17,9 @@ class GuestController extends Controller
     public function index()
     {
         $pages = "event";
-        return view('user.event.index', compact('pages'));
+        $attends = Auth::user()->attends;
+        $events = Event::doesntHave('guests')->get();
+        return view('user.event.index', compact('pages', 'attends', 'events'));
     }
 
     /**
@@ -36,7 +40,17 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateData($request);
+        $attend = Auth::user()->attends()->syncWithoutDetaching($request->event_id, ['is_approved' => '0']);
+        return empty($attend) ? redirect()->back()->with('Fail', "Failed to submit request")
+            : redirect()->back()->with('Success', 'Request Submitted');
+    }
+
+    private function validateData(Request $request)
+    {
+        return $request->validate([
+            'event_id' => 'required',
+        ]);
     }
 
     /**
@@ -77,10 +91,11 @@ class GuestController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        Auth::user()->attends()->detach($id);
+        return redirect()->back()->with('Success', 'Request #('.$id.') canceled');
     }
 }

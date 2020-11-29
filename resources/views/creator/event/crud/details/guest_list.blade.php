@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                @if(count($event->users) > 0)
+                @if(count($event->guests) > 0)
                     <table class="table table-bordered" id="table" width="100%" cellspacing="0">
                         <thead>
                         <tr class="text-center">
@@ -27,7 +27,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($event->users as $guest)
+                        @foreach($event->guests as $guest)
                             <tr class="text-center">
                                 <td>{{$guest->id}}</td>
                                 <td>{{$guest->name}}</a></td>

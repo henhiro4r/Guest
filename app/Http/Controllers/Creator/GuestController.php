@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Creator;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -35,7 +36,10 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::findOrFail($request->user_id);
+        $attend = $user->attends()->syncWithoutDetaching($request->event_id, ['is_approved' => '0']);
+        return empty($attend) ? redirect()->back()->with('Fail', "Failed to add new guest")
+            : redirect()->back()->with('Success', 'Guest Added');
     }
 
     /**
@@ -83,11 +87,25 @@ class GuestController extends Controller
         //
     }
 
-    public function approve() {
+    public function approve($id, Request $request) {
+        $user = User::findOrFail($id);
+        $event = $user->attends->where('id', '=', $request->event_id)->first();
+        $event->pivot->update([
+           'is_approved' => '1',
+        ]);
 
+        return empty($event) ? redirect()->back()->with('Fail', "Failed to update status")
+            : redirect()->back()->with('Success', 'Success guest: #('.$user->name.') approved');
     }
 
-    public function decline() {
+    public function decline($id, Request $request) {
+        $user = User::findOrFail($id);
+        $event = $user->attends->where('id', '=', $request->event_id)->first();
+        $event->pivot->update([
+            'is_approved' => '2',
+        ]);
 
+        return empty($event) ? redirect()->back()->with('Fail', "Failed to update status")
+            : redirect()->back()->with('Success', 'Success guest: #('.$user->name.') approved');
     }
 }

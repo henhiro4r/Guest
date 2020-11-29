@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Creator;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -64,7 +65,16 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $pages = 'event';
+        $event = Event::findOrFail($id);
+
+        $events = Event::all()->except($id)->pluck('id');
+        $guestList = User::whereNotIn('id', function ($query) use ($events) {
+            $query->select('user_id')->from('event_user')
+                ->whereNotIn('event_id', $events);
+        })->where('role_id', 3)->get();
+
+        return view('creator.event.crud.detail', compact('pages', 'event', 'guestList'));
     }
 
     /**
