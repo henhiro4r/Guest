@@ -52,22 +52,22 @@ class LoginController extends Controller
                     } else {
                         return response([
                             'message' => 'Login failed',
-                        ], 201);
+                        ], 400);
                     }
                 } else {
                     return response([
                         'message' => 'Account in use!',
-                    ], 201);
+                    ], 403);
                 }
             } else {
                 return response([
                     'message' => 'Account suspended',
-                ], 201);
+                ], 403);
             }
         } else {
             return response([
                 'message' => 'Please verify email address',
-            ], 201);
+            ], 403);
         }
     }
 
