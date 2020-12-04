@@ -18,7 +18,9 @@ class GuestController extends Controller
     {
         $pages = "event";
         $attends = Auth::user()->attends;
-        $events = Event::doesntHave('guests')->get();
+        $events = Event::whereDoesntHave('guests', function ($query) {
+            $query->where('user_id', Auth::id());
+        })->get();
         return view('user.event.index', compact('pages', 'attends', 'events'));
     }
 

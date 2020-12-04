@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="822ef317-a9b4-4c79-ba8b-357c90c6449b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Creator/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Creator/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Creator/GuestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Creator/GuestController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/GuestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/GuestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/creator/event/crud/details/guest_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/creator/event/crud/details/guest_list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="SimpleApi" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -167,7 +167,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BaseProject" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -219,6 +219,7 @@
       <workItem from="1605226992377" duration="10162000" />
       <workItem from="1605823155590" duration="9178000" />
       <workItem from="1606433339391" duration="8404000" />
+      <workItem from="1607044305879" duration="1589000" />
     </task>
     <servers />
   </component>
@@ -234,6 +235,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="453" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1606434039728" />
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1607003831729">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1607003831729" />
     <state x="531" y="191" key="SettingsEditor" timestamp="1605836262265">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
