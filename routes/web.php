@@ -1,9 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\EventController as AdminEventController;
+use App\Http\Controllers\Admin\PageController as AdminPageController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Auth\ActivationController;
+use App\Http\Controllers\Creator\EventController as CreatorEventController;
+use App\Http\Controllers\Creator\GuestController as CreatorGuestController;
+use App\Http\Controllers\Creator\PageController as CreatorPageController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\User\UserController as UUserController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\User\GuestController as UserGuestController;
+use App\Http\Controllers\User\PageController as UserPageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -18,10 +25,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', function () {
-    return redirect()->route('event.index');
-});
+Route::get('/', [PageController::class, 'index'])->name('web.index');
 
 Route::get('activate', [ActivationController::class, 'activate'])->name('activate');
 
@@ -30,8 +36,18 @@ Route::group([
     'prefix' => 'admin',
     'as' => 'admin.'
 ], function () {
-    Route::resource('user', UserController::class);
-    Route::resource('event', AdminEventController::class);
+    Route::get('dashboard', [AdminPageController::class, 'dashboard'])->name('dashboard');
+    Route::get('admin', [AdminUserController::class, 'admin'])->name('admin');
+    Route::get('creator', [AdminUserController::class, 'creator'])->name('creator');
+
+    Route::post('user/deactivate', [AdminUserController::class, 'deactivate'])->name('user.deactivate');
+    Route::post('user/activate', [AdminUserController::class, 'activate'])->name('user.activate');
+
+    Route::post('event/close', [AdminEventController::class, 'close'])->name('event.close');;
+    Route::post('event/open', [AdminEventController::class, 'open'])->name('event.open');
+
+    Route::resource('users', AdminUserController::class);
+    Route::resource('events', AdminEventController::class)->except('create');
 });
 
 Route::group([
@@ -39,7 +55,16 @@ Route::group([
     'prefix' => 'creator',
     'as' => 'creator.'
 ], function () {
-    Route::resource('event', EventController::class);
+    Route::get('dashboard', [CreatorPageController::class, 'dashboard'])->name('dashboard');
+
+    Route::post('event/close', [CreatorEventController::class, 'close'])->name('event.close');
+    Route::post('event/open', [CreatorEventController::class, 'open'])->name('event.open');
+
+    Route::post('guests/{id}/approve', [CreatorGuestController::class, 'approve'])->name('guests.approve');
+    Route::post('guests/{id}/decline', [CreatorGuestController::class, 'decline'])->name('guests.decline');
+
+    Route::resource('guests', CreatorGuestController::class);
+    Route::resource('events', CreatorEventController::class);
 });
 
 Route::group([
@@ -47,9 +72,7 @@ Route::group([
     'prefix' => 'user',
     'as' => 'user.'
 ], function () {
-    Route::resource('user', UUserController::class);
+    Route::get('dashboard', [UserPageController::class, 'dashboard'])->name('dashboard');
+
+    Route::resource('events', UserGuestController::class);
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

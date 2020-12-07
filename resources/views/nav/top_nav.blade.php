@@ -1,19 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">GuestBook</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item @if($pages == 'event') active @endif">
-                <a class="nav-link" href="{{ route('event.index') }}">Event List</a>
-            </li>
+<nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav flex-nowrap ml-auto">
             @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
-                <li class="nav-item @if($pages == 'user') active @endif">
-                    <a class="nav-link" href="{{ route('user.index') }}">User List</a>
-                </li>
+                @include('nav.notif.alert')
+                @include('nav.notif.inbox')
             @endif
+            <div class="d-none d-sm-block topbar-divider"></div>
+            <li class="nav-item dropdown no-arrow" role="presentation">
+                <div class="nav-item dropdown no-arrow">
+                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
+                        <span class="d-none d-lg-inline mr-2 text-gray-600 small">{{ Auth::user()->name }}</span>
+                        <img class="border rounded-circle img-profile" src="{{asset('assets/img/profile-default.png')}}">
+                    </a>
+                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
+                        <a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
 </nav>
